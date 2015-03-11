@@ -5,7 +5,7 @@ add_action('admin_menu', 'ac_scroll_create_menu');
 function ac_scroll_create_menu() {
 
 	//create new top-level menu
-	add_menu_page('Ac Plugin Settings', 'Ac-Scroll', 'administrator', __FILE__, 'ac_scrl_settings_page');
+	add_options_page('Ac Plugin Settings', 'Ac-Scroll-Up', 'administrator', __FILE__, 'ac_scrl_settings_page');
 
 	//call register settings function
 	add_action( 'admin_init', 'register_myscrlsettings' );
@@ -16,8 +16,23 @@ function register_myscrlsettings() {
 	//register our settings
 	register_setting( 'ac-settings-group', 'background_color' );
 	register_setting( 'ac-settings-group', 'font_color' );
+	register_setting( 'ac-settings-group', 'plugin_options' ,'drop_down1', 'Select Color', 'setting_dropdown_fn2', __FILE__, 'main_section' );
+	//add_settings_field();
 
 }
+
+// DROP-DOWN-BOX - Name: plugin_options[dropdown1]
+function  setting_dropdown_fn2() {
+	$options = get_option('plugin_options');
+	$items = array("<i class='fa fa-facebook'></i>", "Green", "Blue", "Orange", "White", "Violet", "Yellow");
+	echo "<select id='drop_down1' name='plugin_options[dropdown1]'>";
+	foreach($items as $item) {
+		$selected = ($options['dropdown1']==$item) ? 'selected="selected"' : '';
+		echo "<option value='$item' $selected>$item</option>";
+	}
+	echo "</select>";
+}
+
 
 function ac_scrl_settings_page() {
 ?>

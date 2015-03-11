@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: AcScrollUp-Plugin
+Plugin Name: Ac-Scroll-Up
 Description: this plugin is for scroll to top.
 Author: Asif Ahmmad
-Plugin URI:http://www.google.com
-Author URI:http://www.aidclub.freeiz.com
+Plugin URI:http://aidclub.net/wp
+Author URI:http://aidclub.net
 version:1.0
 */
 
